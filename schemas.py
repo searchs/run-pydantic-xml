@@ -7,7 +7,7 @@ class Format(BaseXmlModel, tag='format'):
     # format: str = element()
 
 
-class Movie(BaseXmlModel, tag="movie", arbitrary_types_allowed=True):
+class Movie(BaseXmlModel, tag="movie"):
     # favorite: Literal["True", "False"] = attr()
     favorite: str = attr()
     title: str = attr()
@@ -15,6 +15,9 @@ class Movie(BaseXmlModel, tag="movie", arbitrary_types_allowed=True):
     year: int = element()
     rating: str = element()
     description: str = element()
+
+    class Config:
+        arbitrary_types_allowed=True
 
 
 class Decade(BaseXmlModel, tag="decade"):
